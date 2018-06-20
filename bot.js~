@@ -13,7 +13,7 @@ function respond() {
     this.res.end();
   } else if (request.text && gifRegex.test(request.text)) {
       this.res.writeHead(200);
-      postMessage("GIF");
+      searchGif();
       this.res.end();
   } else {
     console.log("don't care");
@@ -49,8 +49,7 @@ function searchGif() {
 	    });
     };
 
-    HTTP.request(options, callback).end();
-    
+    HTTP.request(options, callback).end();    
 }
 
 
