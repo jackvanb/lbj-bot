@@ -1,15 +1,20 @@
 var HTTPS = require('https');
 
 var botID = process.env.BOT_ID;
+var apiKey = process.env.API_KEY;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegex = /^\/LeBron$/;
+      botRegex = /^\/LeBron$/, gifRegex = /^\/gif$/;
 
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
-    postMessage();
+    postMessage("LeBron is the GOAT.");
     this.res.end();
+  } else if (request.text && gifRegex.test(request.text)) {
+      this.res.writeHead(200);
+      searchGif();
+      this.res.end();
   } else {
     console.log("don't care");
     this.res.writeHead(200);
@@ -17,10 +22,39 @@ function respond() {
   }
 }
 
-function postMessage() {
+function searchGif() {
+    var options = {
+	host: 'api.giphy.com',
+	path: '/v1/gifs/search?q=LeBron' + '&api_key=' + apiKey
+    };
+
+    var callback = function(response) {
+	var str = '';
+
+	response.on('data', function(chunck){
+		str += chunck;
+	    });
+
+	response.on('end', function() {
+		if (!(str && JSON.parse(str).data[0])) {
+		    postMessage('Couldn\'t find a gif');
+		} else {
+		    var id = JSON.parse(str).data[0].id;
+		    var giphyURL = 'http://i.giphy.com/' + id + '.gif';
+		    postMessage(giphyURL);
+		}
+	    });
+    };
+
+    HTTP.request(options, callback).end();
+    
+}
+
+
+function postMessage(message) {
   var botResponse, options, body, botReq;
 
-  botResponse = "LeBron is the GOAT.";
+  botResponse = message;
 
   options = {
     hostname: 'api.groupme.com',
