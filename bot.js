@@ -4,6 +4,7 @@ var botID = process.env.BOT_ID;
 var apiKey = process.env.API_KEY;
 
 function respond() {
+ 
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\/LeBron$/, gifRegex = /^\/gif$/;
 
@@ -40,8 +41,7 @@ function searchGif() {
 		if (!(str && JSON.parse(str).data[0])) {
 		    postMessage('Couldn\'t find a gif');
 		} else {
-		    var url  = JSON.parse(str).data[0].url;
-		    var giphyURL = 'http://i.giphy.com/' + id + '.gif';
+		    var url  = JSON.parse(str).data[0].embed_url;
 		    postMessage(url);
 		}
 	    });

@@ -13,7 +13,7 @@ function respond() {
     this.res.end();
   } else if (request.text && gifRegex.test(request.text)) {
       this.res.writeHead(200);
-      searchGif();
+      postMessage("https://media.giphy.com/media/xTiTnDAP0RiCo9k85W/giphy.gif");
       this.res.end();
   } else {
     console.log("don't care");
@@ -40,8 +40,7 @@ function searchGif() {
 		if (!(str && JSON.parse(str).data[0])) {
 		    postMessage('Couldn\'t find a gif');
 		} else {
-		    var url  = JSON.parse(str).data[0].url;
-		    var giphyURL = 'http://i.giphy.com/' + id + '.gif';
+		    var url  = JSON.parse(str).data[0].embed_url;
 		    postMessage(url);
 		}
 	    });
