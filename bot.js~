@@ -25,7 +25,8 @@ function respond() {
 function searchGif() {
 
     postMessage("Gif");
-
+ 
+    /*
     var options = {
 	host: 'api.giphy.com',
 	path: '/v1/gifs/search?api_key=DHkSrIUyV35KMHtRpn4wFT9kqKDY0JTG&q=LeBron&limit=25&offset=0&rating=G&lang=en'
@@ -49,7 +50,8 @@ function searchGif() {
 	    });
     };
 
-    HTTP.request(options, callback).end();    
+    HTTP.request(options, callback).end();
+    */    
 }
 
 
