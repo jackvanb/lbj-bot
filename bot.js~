@@ -24,10 +24,7 @@ function respond() {
 
 function searchGif() {
 
-    postMessage("Gif");
- 
-    /*
-    var options = {
+     var options = {
 	host: 'api.giphy.com',
 	path: '/v1/gifs/search?api_key=DHkSrIUyV35KMHtRpn4wFT9kqKDY0JTG&q=LeBron&limit=25&offset=0&rating=G&lang=en'
     };
@@ -43,15 +40,14 @@ function searchGif() {
 		if (!(str && JSON.parse(str).data[0])) {
 		    postMessage('Couldn\'t find a gif');
 		} else {
-		    var id = JSON.parse(str).data[0].id;
+		    var url  = JSON.parse(str).data[0].url;
 		    var giphyURL = 'http://i.giphy.com/' + id + '.gif';
-		    postMessage(giphyURL);
+		    postMessage(url);
 		}
 	    });
     };
 
-    HTTP.request(options, callback).end();
-    */    
+    HTTP.request(options, callback).end();   
 }
 
 

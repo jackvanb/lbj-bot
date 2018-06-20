@@ -13,7 +13,7 @@ function respond() {
     this.res.end();
   } else if (request.text && gifRegex.test(request.text)) {
       this.res.writeHead(200);
-      searchGif();
+      postMessage("https://media.giphy.com/media/xTiTnDAP0RiCo9k85W/giphy.gif");
       this.res.end();
   } else {
     console.log("don't care");
