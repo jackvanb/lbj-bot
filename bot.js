@@ -20,7 +20,7 @@ function respond() {
         this.res.writeHead(200);
 	postMessage("Owen can't spell.");
 	this.res.end();
-  else {
+  } else {
     console.log("don't care");
     this.res.writeHead(200);
     this.res.end();
