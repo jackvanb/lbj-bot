@@ -16,7 +16,11 @@ function respond() {
       this.res.writeHead(200);
       postMessage("https://media.giphy.com/media/xTiTnDAP0RiCo9k85W/giphy.gif");
       this.res.end();
-  } else {
+  } else if (request.user_id == 39868511) {
+        this.res.writeHead(200);
+	postMessage("Owen can't spell.");
+	this.res.end();
+  else {
     console.log("don't care");
     this.res.writeHead(200);
     this.res.end();
