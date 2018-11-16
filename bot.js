@@ -17,9 +17,9 @@ function respond() {
       postMessage("https://media.giphy.com/media/xTiTnDAP0RiCo9k85W/giphy.gif");
       this.res.end();
   } else if (request.user_id == 39868511) {
-        this.res.writeHead(200);
-	postMessage("Owen can't toss.");
-	this.res.end();
+//         this.res.writeHead(200);
+// 	postMessage("Owen can't toss.");
+// 	this.res.end();
   } else if (request.text && fightNightRegex.test(request.text)) {
 	this.res.writeHead(200);
     	postMessage("Fight Night?");
