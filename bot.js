@@ -6,7 +6,7 @@ var apiKey = process.env.API_KEY;
 function respond() {
  
   var request = JSON.parse(this.req.chunks[0]),
-      botRegex = /^\/LeBron$/, gifRegex = /^\/gif$/;
+      botRegex = /^\/LeBron$/, gifRegex = /^\/gif$/, fightNightRegex = /(fight|night)/i;
 
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
@@ -20,6 +20,10 @@ function respond() {
         this.res.writeHead(200);
 	postMessage("Owen can't toss.");
 	this.res.end();
+  } else if (request.text && fightNightRegex.test(request.text)) {
+	this.res.writeHead(200);
+    	postMessage("Fight Night?");
+    	this.res.end(); 
   } else {
     console.log("don't care");
     this.res.writeHead(200);
