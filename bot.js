@@ -18,7 +18,7 @@ function respond() {
       this.res.end();
   } else if (request.user_id == 39868511) {
         this.res.writeHead(200);
-	postMessage("Owen can't spell.");
+	postMessage("Owen can't toss.");
 	this.res.end();
   } else {
     console.log("don't care");
