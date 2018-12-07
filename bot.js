@@ -10,7 +10,7 @@ function respond() {
 
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("LeBron is the GOAT!");
+    postMessage("Let's fight some pussies");
     this.res.end();
   } else if (request.text && gifRegex.test(request.text)) {
       this.res.writeHead(200);
@@ -20,10 +20,6 @@ function respond() {
 //         this.res.writeHead(200);
 // 	postMessage("Owen can't toss.");
 // 	this.res.end();
-  } else if (request.text && fightNightRegex.test(request.text)) {
-	this.res.writeHead(200);
-    	postMessage("Fight Night?");
-    	this.res.end(); 
   } else {
     console.log("don't care");
     this.res.writeHead(200);
