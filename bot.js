@@ -10,7 +10,7 @@ function respond() {
 
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("Let's fight some pussies");
+    postMessage("It's a back slash smh");
     this.res.end();
   } else if (request.text && gifRegex.test(request.text)) {
       this.res.writeHead(200);
