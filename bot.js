@@ -6,8 +6,6 @@ var botID = process.env.BOT_ID;
 var apiKey = process.env.API_KEY;
 
 var OWEN_ID = 39868511;
-var lbj = NBA.findPlayer("LeBron James");
-NBA.stats.playerClutch({ PlayerID: lbj.playerId }).then(console.log);
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
