@@ -15,6 +15,7 @@ This project shows the capability of a bot to react to messages sent within a gr
 
 * /LeBron command to get a message about the greatness of LeBron James
 * /gif command to get a random Gif of LeBron James
+* /stats command to get his year-to-date averages in points, rebounds, and assists
 
 ## Have fun with the LeBron James bot!
 
